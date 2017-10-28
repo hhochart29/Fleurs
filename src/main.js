@@ -16,7 +16,7 @@ let nodes = [
         label: "1828",
         group: 2,
         title: 'Création de la société Nantaise d\'horticulture',
-        content: "Dès sa création en 1828, la Société nantaise d’horticulture présente une première exposition florale dans la salle de la Bourse lors de la visite officielle de la Duchesse de Berry."
+        content: "Dès sa création en 1828, la Société nantaise d\'horticulture présente une première exposition florale dans la salle de la Bourse lors de la visite officielle de la Duchesse de Berry."
     },
     {
         id: 2,
@@ -173,7 +173,7 @@ const titre = document.querySelector('.event-content h2');
 const date = document.querySelector('.event-content .date');
 const image = document.querySelector('.event-content .image');
 const description = document.querySelector('.event-content .description');
-const nodeInfo = document.querySelector('.node-info h2');
+const nodeInfo = document.querySelector('.node-info');
 
 network.on('click', (obj) => {
     if (obj.nodes[0] !== undefined && obj.nodes[0] !== 0) {
@@ -190,18 +190,20 @@ network.on('click', (obj) => {
 network.on('hoverNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
         let hoverNode = nodes[obj.node];
-        nodeInfo.innerHTML = hoverNode.title;
-        nodeInfo.classList.toggle('entrance');
+        setTimeout(() => {
+            nodeInfo.querySelector('h2').innerHTML = hoverNode.title;
+            nodeInfo.classList.toggle('entrance');
+        }, 1000)
     }
 });
 
 network.on('blurNode', (obj) => {
-    nodeInfo.classList.toggle('entrance');
     if (obj.node !== undefined && obj.node !== 0) {
+        nodeInfo.classList.toggle('entrance');
         nodeInfo.classList.toggle('exit');
         setTimeout(() => {
             nodeInfo.classList.toggle('exit');
-        },1200)
+        },300)
     }
 });
 

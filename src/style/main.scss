@@ -117,24 +117,27 @@ h1 {
 		}
 		.node-info {
 			width: 100%;
-			height: 5vh;
-			color: white;
+			height: auto;
 			position: absolute;
-			bottom: 0;
 			text-align: center;
+			top: 100%;
 			h2 {
 				font-weight: normal;
 				font-size: 25px;
-				transform: translateX(-100%);
-				&.entrance {
-					animation-name: slideInLeft;
-					animation: 1.2s slideInLeft ease-in-out forwards;
-				}
-				&.exit {
-					animation-name: slideOutRight;
-					animation: 1.2s slideOutRight ease-in-out forwards;
-				}
-
+				width: auto;
+				background-color: white;
+				color: black;
+				display: inline-block;
+				padding: 5px 30px;
+				border-radius: 15px;
+			}
+			&.entrance {
+				animation-name: slideInUp;
+				animation: .3s slideInUp ease-in-out forwards;
+			}
+			&.exit {
+				animation-name: slideOutDown;
+				animation: .3s slideOutDown ease-in-out forwards;
 			}
 		}
 	}
