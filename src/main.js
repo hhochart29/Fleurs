@@ -9,56 +9,154 @@ require('./style/main.scss');
 //TODO : regrouper les groupes par thèmes
 // Ajouter une légende en bas de l'écran = tel couleur = tel groupe
 // Hover : avoir le titre en hover pour avoir un apercu de ce sur quoi on va cliquer
-let nodes = [
-    {id: 0, label: "          ", group: 'core'},
-    {
-        id: 1,
-        label: "1828",
-        group: 2,
-        title: 'Création de la société Nantaise d\'horticulture',
-        content: "Dès sa création en 1828, la Société nantaise d\'horticulture présente une première exposition florale dans la salle de la Bourse lors de la visite officielle de la Duchesse de Berry."
-    },
-    {
-        id: 2,
-        label: "1829",
-        group: 1,
-        title: 'La société Nantaise d\horticulture organise des fêtes florales saisonnières',
-        content: 'Dès 1829, elle organise des fêtes florales saisonnières, les «expositions printanières des plantes » ont lieu sur la promenade de la Bourse. Quant aux expositions automnales, elles se déroulent le plus souvent au Cirque Paquer (rue de l’Arche Sèche).',
-    },
-    {
-        id: 3,
-        label: "1920",
-        group: 2,
-        title: 'La Société d\'horticulture organise encore deux expositions florales',
-        content: ''
-    },
-    {id: 4, label: "1920", group: 3},
-    {id: 5, label: "1920", group: 4},
-    {id: 6, label: "1920", group: 1},
-    {id: 7, label: "1920", group: 2},
-    {id: 8, label: "1920", group: 3},
-    {id: 9, label: "1920", group: 4},
-    {id: 10, label: "1920", group: 1},
-    {id: 11, label: "1920", group: 2},
-    {id: 12, label: "1920", group: 3},
-    {id: 13, label: "1920", group: 4},
-    {id: 14, label: "1920", group: 3},
-    {id: 15, label: "1920", group: 2},
-    {id: 16, label: "1920", group: 1},
-    {id: 17, label: "1920", group: 1},
-    {id: 18, label: "1920", group: 2},
-    {id: 19, label: "1920", group: 3},
-    {id: 20, label: "1920", group: 4},
-    {id: 21, label: "1920", group: 3},
-    {id: 22, label: "1920", group: 4},
-    {id: 23, label: "1920", group: 2},
-    {id: 24, label: "1920", group: 1},
-    {id: 25, label: "1920", group: 1},
-    {id: 26, label: "1920", group: 2},
-    {id: 27, label: "1920", group: 3},
-    {id: 28, label: "1920", group: 4},
-    {id: 29, label: "1920", group: 2}
-];
+let nodes =
+    [
+        {
+            id: 0,
+            label: "          ",
+            group: 'core'
+        },
+        {
+            id: 1,
+            label: "1828",
+            group: "divers",
+            title: "Création de la société Nantaise d\'horticulture",
+            content: "Dès sa création en 1828, la Société nantaise d\'horticulture présente une première exposition florale dans la salle de la Bourse lors de la visite officielle de la Duchesse de Berry."
+        },
+        {
+            id: 2,
+            label: "1829",
+            group: "divers",
+            title: "La société Nantaise d\'horticulture organise des fêtes florales saisonnières",
+            content: 'Dès 1829, elle organise des fêtes florales saisonnières, les «expositions printanières des plantes » ont lieu sur la promenade de la Bourse. Quant aux expositions automnales, elles se déroulent le plus souvent au Cirque Paquer (rue de l’Arche Sèche).',
+        },
+        {
+            id: 3,
+            label: "1920",
+            group: "divers",
+            title: "La Société d\'horticulture organise encore deux expositions florales",
+            content: "En 1920 la Société d’horticulture organise encore deux expositions florales annuelles : l\’une au printemps, l\’autre fin octobre"
+        },
+        {
+            id: 4,
+            label: "1920",
+            group: "divers",
+            title: "La société Nantaise d’horticulture initie les concours de jardins ouvriers",
+            content: ''
+        },
+        {
+            id: 5,
+            label: "1886",
+            group: "divers",
+            title: "Création de la société des horticulteurs de Nantes",
+            content: ''
+        },
+        {
+            id: 6,
+            label: "1921",
+            group: "divers",
+            title: "Exposition saisonnières",
+            content: "La ville de Nantes sous l’impulsion de la commission de surveillance du Jardin des Plantes décide la présentation d’expositions saisonnières et thématiques dans les serres et l’Orangerie du Jardin des Plantes afin « de permettre aux horticulteurs et jardiniers de mettre sous les yeux du public leurs produits : plants, fleurs en pots, fleurs coupées, primeurs, fruits et légumes de saison ». Ces expositions seront multipliées et renouvelées à chaque floraison spéciale : ainsi en juin 1922, les roses sont à l’honneur, en novembre 1923 ce sont les chrysanthèmes, en octobre 1926 les cyclamens puis les dahlias en septembre 1930."
+        },
+        {
+            id: 7,
+            label: "1700",
+            group: "camellia",
+            title: "Introduction du Camélia en France",
+            content: "Introduit en France dans la première moitié du XVIIIème siècle, le camellia va connaître son heure de gloire au siècle suivant. À Nantes le développement de la culture du camellia doit beaucoup à Ferdinand Favre, industriel, maire de Nantes de 1832 à 1848 et de 1852 à 1866 qui passionné d’horticulture, réussit à acclimater le camellia, considéré comme plante de serre, à l’air libre."
+        },
+        {
+            id: 8,
+            label: "1950",
+            group: "camellia",
+            title: "La Société nantaise d’horticulture organise des expositions de camellias",
+            content: "À partir du milieu du XIXème siècle, la Société nantaise d’horticulture participe largement à cette diffusion en organisant des expositions de camellias lors desquelles sont primées nombre de variétés nantaises."
+        },
+        {
+            id: 9,
+            label: "1992",
+            group: "camellia",
+            title: "3ème salon du camellia",
+            content: "Le troisième salon du camellia à lieu à la chapelle de l'oratoire."
+        },
+        {
+            id: 10,
+            label: "1789",
+            group: "chrysantheme",
+            title: "Importation du chrysanthème en France par un marseillais",
+            content: "Rapporté du Japon en 1789 par un marseillais, le chrysanthème, plante d’automne par excellence, a fait l’objet de très nombreuses expositions à Nantes."
+        },
+        {
+            id: 11,
+            label: "1912",
+            group: "chrysantheme",
+            title: "Congrès international des chrysanthémistes",
+            content: "En novembre 1912, Nantes accueille le Congrès international des chrysanthémistes, occasion d’une exposition florale sur le Cours Saint-Pierre, nouveau congrès en novembre 1936 doublé d’une exposition dans le bâtiment du harnachement du Château."
+        },
+        {
+            id: 12,
+            label: "1936",
+            group: "chrysantheme",
+            title: "Nouveau congrès international des chrysanthémistes",
+            content: "Nouveau congrès international des chrysanthémistes en novembre 1936 doublé d’une exposition dans le bâtiment du harnachement du Château."
+        },
+        {
+            id: 13,
+            label: "1712",
+            group: "dahlia",
+            title: "Importation du Dahlia en Europe",
+            content: ""
+        },
+        {
+            id: 14,
+            label: "1929",
+            group: "dahlia",
+            title: "Création de la société Nantaise du Dahlia",
+            content: ""
+        },
+        {
+            id: 15,
+            label: "1930",
+            group: "dahlia",
+            title: "Première exposition de dahlia",
+            content: "la Société Nantaise du Dahlia organise une première exposition en 1930 à l’Orangerie du jardin des Plantes."
+        },
+        {
+            id: 16,
+            label: "1932",
+            group: "dahlia",
+            title: "Exposition Nationale de Dahlia",
+            content: "En 1932 se tient au Château dans le bâtiment du harnachement, une exposition nationale, l’année suivante a lieu une exposition internationale de dahlia."
+        },
+        {
+            id: 17,
+            label: "1938",
+            group: "dahlia",
+            title: "Congrès international du dahlia",
+            content: "En 1938, Nantes accueille le Congrès international du dahlia accompagné d’une grande exposition présentée au nouveau palais du Champ de Mars, inauguré à l’occasion le 14 septembre 1938"
+        },
+        {
+            id: 18,
+            label: "1861",
+            group: "divers",
+            title: "Grande exposition nationale",
+            content: ""
+        },
+        {
+            id: 19,
+            label: "1904",
+            group: "divers",
+            title: "Grande exposition internationale",
+            content: ""
+        },
+        {
+            id: 20,
+            label: "1861",
+            group: "divers",
+            title: "Exposition sur les cours Saint-Pierre et Saint-André",
+            content: "En 1861, l’exposition qui se tient sur les Cours Saint-Pierre et Saint-André, est l’occasion de la création d’un jardin paysager avec cours d’eau et ponts"
+        },
+    ];
 let edges = [
     {from: 1, to: 0},
     {from: 2, to: 0},
@@ -80,16 +178,6 @@ let edges = [
     {from: 18, to: 0},
     {from: 19, to: 0},
     {from: 20, to: 0},
-    {from: 21, to: 0},
-    {from: 22, to: 0},
-    {from: 23, to: 0},
-    {from: 24, to: 0},
-    {from: 25, to: 0},
-    {from: 26, to: 0},
-    {from: 27, to: 0},
-    {from: 28, to: 0},
-    {from: 29, to: 0},
-    {from: 30, to: 0},
 
     {from: 0, to: 1},
     {from: 0, to: 2},
@@ -111,16 +199,6 @@ let edges = [
     {from: 0, to: 18},
     {from: 0, to: 19},
     {from: 0, to: 20},
-    {from: 0, to: 21},
-    {from: 0, to: 22},
-    {from: 0, to: 23},
-    {from: 0, to: 24},
-    {from: 0, to: 25},
-    {from: 0, to: 26},
-    {from: 0, to: 27},
-    {from: 0, to: 28},
-    {from: 0, to: 29},
-    {from: 0, to: 30},
 ];
 
 // create a network
@@ -139,24 +217,27 @@ let options = {
         size: 30,
         font: {
             size: 40,
-            color: 'white'
+            color: 'white',
+            face: 'Ubuntu',
+            strokeWidth: 2,
+            strokeColor: 'black'
         },
     },
     groups: {
-        'core': {
+        "core": {
             color: 'yellow'
         },
-        1: {
+        "divers": {
             color: '#ecbf54'
         },
-        2: {
+        "camellia": {
             color: '#e75665'
         },
-        3: {
+        "chrysantheme": {
             color: '#f5bfcf'
         },
-        4: {
-            color: '#afccce'
+        "dahlia": {
+            color: '#AB99FF'
         }
     },
     edges: {
@@ -192,20 +273,23 @@ network.on('hoverNode', (obj) => {
         let hoverNode = nodes[obj.node];
         setTimeout(() => {
             nodeInfo.querySelector('h2').innerHTML = hoverNode.title;
-            nodeInfo.classList.toggle('entrance');
-        }, 1000)
+            nodeInfo.classList.add('entrance');
+        }, 500)
     }
 });
 
 network.on('blurNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
-        nodeInfo.classList.toggle('entrance');
-        nodeInfo.classList.toggle('exit');
         setTimeout(() => {
-            nodeInfo.classList.toggle('exit');
-        },300)
+            nodeInfo.classList.remove('entrance');
+            nodeInfo.classList.add('exit');
+            setTimeout(() => {
+                nodeInfo.classList.remove('exit');
+            }, 300)
+        }, 500);
     }
 });
+
 
 close.onclick = (e) => {
     content.classList.toggle('visible');
