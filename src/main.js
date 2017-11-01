@@ -1,4 +1,5 @@
 import * as vis from "vis";
+import TweenMax from "gsap";
 
 require('./style/main.scss');
 
@@ -272,22 +273,14 @@ network.on('click', (obj) => {
 network.on('hoverNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
         let hoverNode = nodes[obj.node];
-        setTimeout(() => {
-            nodeInfo.querySelector('h2').innerHTML = hoverNode.title;
-            nodeInfo.classList.add('entrance');
-        }, 500)
+        nodeInfo.querySelector('h2').innerHTML = hoverNode.title;
+        TweenMax.to(nodeInfo, 1, {y: "-100%"});
     }
 });
 
 network.on('blurNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
-        setTimeout(() => {
-            nodeInfo.classList.remove('entrance');
-            nodeInfo.classList.add('exit');
-            setTimeout(() => {
-                nodeInfo.classList.remove('exit');
-            }, 300)
-        }, 500);
+        TweenMax.to(nodeInfo, 1, {y: "0%"});
     }
 });
 
