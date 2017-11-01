@@ -1,5 +1,6 @@
 import * as vis from "vis";
 import TweenMax from "gsap";
+import VanillaTilt from "vanilla-tilt";
 require('./style/main.scss');
 
 let nodes =
@@ -248,6 +249,11 @@ const date = document.querySelector('.event-content .date');
 const image = document.querySelector('.event-content .image');
 const description = document.querySelector('.event-content .description');
 const nodeInfo = document.querySelector('.node-info');
+
+VanillaTilt.init(image, {
+    max: 25,
+    speed: 400
+});
 
 network.on('hoverNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
