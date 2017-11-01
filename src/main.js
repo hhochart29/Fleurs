@@ -1,15 +1,7 @@
 import * as vis from "vis";
 import TweenMax from "gsap";
-
 require('./style/main.scss');
 
-/*
-* Timeline
-* */
-
-//TODO : regrouper les groupes par thèmes
-// Ajouter une légende en bas de l'écran = tel couleur = tel groupe
-// Hover : avoir le titre en hover pour avoir un apercu de ce sur quoi on va cliquer
 let nodes =
     [
         {
