@@ -6,10 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <title>Expositions Florales</title>
-
-  <link title="timeline-styles" rel="stylesheet"
-        href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-  <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -42,6 +39,27 @@
       <span>Chrysanthème</span>
     </div>
   </div>
+
+  <script>
+      let moveForce = 30; // max popup movement in pixels
+      let rotateForce = 20; // max popup rotation in deg
+      const image = document.querySelector('#content');
+
+      document.addEventListener('mousemove', (e) => {
+          let docX = document.width;
+          let docY = document.height;
+
+          let moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
+          let moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
+
+          let rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
+          let rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
+
+          image.style.left = moveX+'px';
+          image.style.top = moveY+'px';
+          image.style.tranform ='rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)'
+      })
+  </script>
 
 </div>
 <script type="text/javascript" src="bundle.js"></script></body>
