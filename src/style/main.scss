@@ -103,7 +103,7 @@ h1 {
 			background-color: black;
 			canvas {
 				z-index: 1;
-				background-image: url('/src/images/flower_bg.jpg');
+				background-image: url('/dist/images/flower_bg.jpg');
 				-webkit-background-size: 100% 100%;
 				background-size: 100% 100%;
 			}
@@ -174,22 +174,22 @@ h1 {
 				}
 				&:nth-of-type(1) {
 					&::before {
-						background-image: url('/src/images/divers.png');
+						background-image: url('/dist/images/divers.png');
 					}
 				}
 				&:nth-of-type(2) {
 					&::before {
-						background-image: url('/src/images/dahlia.png');
+						background-image: url('/dist/images/dahlia.png');
 					}
 				}
 				&:nth-of-type(3) {
 					&::before {
-						background-image: url('/src/images/camellia.png');
+						background-image: url('/dist/images/camellia.png');
 					}
 				}
 				&:nth-of-type(4) {
 					&::before {
-						background-image: url('/src/images/chrysantheme.png');
+						background-image: url('/dist/images/chrysantheme.png');
 					}
 				}
 			}
