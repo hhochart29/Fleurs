@@ -19,6 +19,57 @@ h1 {
 	color: white;
 }
 
+#loader {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 11111;
+	background-color: #f5bfcf;
+	.loader-container {
+		top: 50%;
+		position: absolute;
+		text-align: center;
+		left: 50%;
+		transform: translateY(-50%);
+		i {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			position: absolute;
+			border-radius: 100%;
+			&:nth-of-type(1) {
+				background: #ecbf54;
+				width: 40px;
+				height: 40px;
+				top:-20px;
+				left:-20px;
+			}
+			&:nth-of-type(2) {
+				background: #e75665;
+				top: 10px;
+				left: 10px;
+			}
+			&:nth-of-type(3) {
+				background: #AB99FF;
+				top: 10px;
+				right: 10px;
+			}
+			&:nth-of-type(4) {
+				background: #e75665;
+				bottom: 10px;
+				right: 10px;
+			}
+			&:nth-of-type(5) {
+				background: #AB99FF;
+				left: 10px;
+				bottom: 10px;
+			}
+		}
+	}
+}
+
 .container {
 	height: 100vh;
 	width: 100vw;

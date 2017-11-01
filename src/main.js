@@ -3,6 +3,14 @@ import TweenMax from "gsap";
 import VanillaTilt from "vanilla-tilt";
 require('./style/main.scss');
 
+//loader
+TweenMax.to(document.querySelector('.loader-container'), 5, {rotation: 360, repeat:-1});
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout( () => {
+        TweenMax.to(document.querySelector('#loader'), 2, {autoAlpha: 0});
+    }, 1500)
+});
+
 let nodes =
     [
         {
@@ -303,7 +311,3 @@ close.onclick = (e) => {
 document.querySelector("canvas").onwheel = function (event) {
     event.preventDefault();
 };
-
-/*
-* Timeline End
-* */
