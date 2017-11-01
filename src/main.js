@@ -263,7 +263,7 @@ network.on('click', (obj) => {
         titre.innerHTML = currentNode.title;
         date.innerHTML = currentNode.label;
         description.innerHTML = currentNode.content;
-        image.style.backgroundImage = "url('./dist/images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
+        image.style.backgroundImage = "url('./src/images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
         content.classList.toggle('visible');
 
     }
