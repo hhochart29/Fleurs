@@ -257,19 +257,6 @@ const image = document.querySelector('.event-content .image');
 const description = document.querySelector('.event-content .description');
 const nodeInfo = document.querySelector('.node-info');
 
-network.on('click', (obj) => {
-    nodeInfo.classList.remove('entrance');
-    if (obj.nodes[0] !== undefined && obj.nodes[0] !== 0) {
-        let currentNode = nodes[obj.nodes[0]];
-        titre.innerHTML = currentNode.title;
-        date.innerHTML = currentNode.label;
-        description.innerHTML = currentNode.content;
-        image.style.backgroundImage = "url('./dist/images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
-        content.classList.toggle('visible');
-
-    }
-});
-
 network.on('hoverNode', (obj) => {
     if (obj.node !== undefined && obj.node !== 0) {
         let hoverNode = nodes[obj.node];
@@ -284,13 +271,35 @@ network.on('blurNode', (obj) => {
     }
 });
 
+TweenMax.set(content, {autoAlpha: 0});
+const tl = new TimelineMax();
+tl.to(content, 1, {autoAlpha: 1});
+tl.from(date, .5, {autoAlpha: 0, scale: 0.5}, '-=0.5');
+tl.from(description, .5, {autoAlpha: 0, scale: 0.5}, '-=0.5');
+tl.from(image, .5, {autoAlpha: 0, scale: 0.5}, '-=0.5');
+tl.from(close, .5, {autoAlpha: 0, rotation: 180, top: -5}, '-=0.5');
 
+tl.pause();
+
+network.on('click', (obj) => {
+    date.classList = 'date';
+    if (obj.nodes[0] !== undefined && obj.nodes[0] !== 0) {
+        let currentNode = nodes[obj.nodes[0]];
+        // Wrapping of all letters in a span (for TweenMax animation)
+        titre.innerHTML = currentNode.title.replace(/(.)/g, "<span>$&</span>");
+        date.innerHTML = currentNode.label;
+        date.classList += ' ' + currentNode.group;
+        description.innerHTML = currentNode.content;
+        image.style.backgroundImage = "url('./dist/images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
+
+        //animations
+        let letterspan = document.querySelectorAll('.event-content h2 span');
+        TweenMax.staggerFrom(letterspan, .3, {autoAlpha: 0, rotation: 90}, 0.025);
+        tl.play();
+    }
+});
 close.onclick = (e) => {
-    content.classList.toggle('visible');
-    content.classList.toggle('disappear');
-    setTimeout(() => {
-        content.classList.toggle('disappear');
-    }, 1200)
+    tl.reverse();
 };
 
 document.querySelector("canvas").onwheel = function (event) {

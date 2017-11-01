@@ -23,26 +23,15 @@ h1 {
 	height: 100vh;
 	width: 100vw;
 	#content {
-		&.visible {
-			animation-name: bounceInDown;
-			animation: 1.2s bounceInDown ease-in-out forwards;
-		}
-		&.disappear {
-			animation-name: bounceOutDown;
-			animation: 1.2s bounceOutDown ease-in-out forwards;
-			bottom: 100%;
-		}
 		position: absolute;
 		left: 0;
 		right: 0;
 		top: 0;
-		bottom: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		bottom: 0;
 		text-align: center;
-		background-color: rgba(0, 0, 0, .85);
+		background-color: #415884;
 		overflow: hidden;
+		z-index: 2;
 		#close {
 			position: absolute;
 			right: 50px;
@@ -58,32 +47,71 @@ h1 {
 			}
 		}
 		.event-content {
-			.content-container {
-				float: right;
-				width: 50%;
-				height: 100vh;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				color: white;
-				font-weight: normal;
-				padding: 30px;
-				h2 {
+			display: grid;
+			grid-template-areas: ". . ." ". header ." ". date ." ". image ." ". content ." ". . .";
+			grid-column-gap: 15px;
+			grid-row-gap: 15px;
+			grid-template-rows: 10vh 1fr 1fr 5fr 4fr 10vh;;
+			grid-template-columns: 5vw auto 5vw;;
+			height: 100%;
+			color: white;
+			text-shadow: 1px 1px 1px black;
+			h2 {
+				grid-area: header;
+				font-size: 50px;
+				span {
 					font-size: 50px;
 					font-weight: normal;
-				}
-				.date {
-					font-size: 45px;
-					font-style: italic;
-				}
-				.description {
-					font-size: 25px;
+					display: inline-block;
+					min-width: 10px;
 				}
 			}
+			.date {
+				grid-area: date;
+				font-size: 45px;
+				font-style: italic;
+				&::before, &::after {
+					filter: drop-shadow(1px 1px 1px black);
+					content: '';
+					width: 30px;
+					height: 30px;
+					margin: 0 20px;
+					display: inline-block;
+					background: no-repeat center center;
+					-webkit-background-size: contain;
+					background-size: contain;
+					vertical-align: middle;
+				}
+				&.camellia {
+					&::before, &::after {
+						background-image: url(../images/camellia.png);
+					}
+				}
+				&.chrysantheme {
+					&::before, &::after {
+						background-image: url(../images/chrysantheme.png);
+					}
+				}
+				&.dahlia {
+					&::before, &::after {
+						background-image: url(../images/dahlia.png);
+					}
+				}
+				&.divers {
+					&::before, &::after {
+						background-image: url(../images/divers.png);
+					}
+				}
+			}
+			.description {
+				grid-area: content;
+				align-self: center;
+				font-family: Ubuntu, serif;
+				font-size: 25px;
+			}
 			.image {
-				float: left;
-				width: 50%;
-				height: 100vh;
+				grid-area: image;
+				height: 100%;
 				-webkit-background-size: contain;
 				background-size: contain;
 				background: no-repeat center center;
@@ -102,7 +130,7 @@ h1 {
 			position: absolute;
 			text-align: center;
 			width: 100%;
-			z-index: 2;
+			z-index: 1;
 			text-shadow: 1px 1px 1px black;
 		}
 		#flower {
@@ -195,4 +223,8 @@ h1 {
 			}
 		}
 	}
+}
+
+.vis-network {
+	z-index: 0;
 }
