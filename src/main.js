@@ -257,6 +257,7 @@ const description = document.querySelector('.event-content .description');
 const nodeInfo = document.querySelector('.node-info');
 
 network.on('click', (obj) => {
+    nodeInfo.classList.remove('entrance');
     if (obj.nodes[0] !== undefined && obj.nodes[0] !== 0) {
         let currentNode = nodes[obj.nodes[0]];
         titre.innerHTML = currentNode.title;

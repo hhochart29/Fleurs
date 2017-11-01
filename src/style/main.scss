@@ -104,8 +104,8 @@ h1 {
 			canvas {
 				z-index: 1;
 				background-image: url('/src/images/flower_bg.jpg');
-				-webkit-background-size: cover;
-				background-size: cover;
+				-webkit-background-size: 100% 100%;
+				background-size: 100% 100%;
 			}
 		}
 		.node-info {
