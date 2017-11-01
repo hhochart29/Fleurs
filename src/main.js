@@ -282,7 +282,7 @@ network.on('click', (obj) => {
         date.innerHTML = currentNode.label;
         date.classList += ' ' + currentNode.group;
         description.innerHTML = currentNode.content;
-        image.style.backgroundImage = "url('./dist/images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
+        image.style.backgroundImage = "url('./images/" + currentNode.label + "_" + currentNode.id + ".jpg')";
 
         //animations
         let letterspan = document.querySelectorAll('.event-content h2 span');
